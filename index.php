@@ -24,5 +24,8 @@
         <p>Board</p>
       </div>
     </div>
+    <?php
+    echo "<p>Hello World</p>";
+     ?>
   </body>
 </html>
