@@ -11,17 +11,17 @@
       <a class="left " href=".."><p>Home Page</p></a>
       <a class="left" href="../Search Page"><p>Search Page</p></a>
       <a class="left" href="../Profile Page"><p>Profile Page</p></a>
-      <a class="left" href="../Protest Page"><p>Protest Page</p></a>
+      <a class="left active"><p>Protest Page</p></a>
       <a class="left" href="../About Us"><p>About Us</p></a>
+      <?php
+        session_start();
+        if(isset($_SESSION['Admin'])){
+          echo '<a class="left" href="/Admin"><p>Admin</p></a>';
+        }
+      ?>
       <a class="right" href="../Apply"><p>Apply</p></a>
-      <a class="right active"><p>Log in</p></a>
+      <a class="right" href="../Log in"><p>Log in</p></a>
     </div>
-    <div class="content">
-      <form>
-        <input type="text" placeholder="User Name">
-        <br><input type="password" placeholder="Password">
-        <br><input type="submit">
-      </form>
-    </div>
+
   </body>
 </html>

@@ -13,6 +13,12 @@
       <a class="left" href="/Profile Page"><p>Profile Page</p></a>
       <a class="left" href="/Protest Page"><p>Protest Page</p></a>
       <a class="left" href="/About Us"><p>About Us</p></a>
+      <?php
+        session_start();
+        if(isset($_SESSION['Admin'])){
+          echo '<a class="left" href="/Admin"><p>Admin</p></a>';
+        }
+      ?>
       <a class="right" href="/Apply"><p>Apply</p></a>
       <a class="right" href="/Log in"><p>Log in</p></a>
     </div>
@@ -24,8 +30,5 @@
         <p>Board</p>
       </div>
     </div>
-    <?php
-    echo "<p>Hello World</p>";
-     ?>
   </body>
 </html>
