@@ -14,15 +14,11 @@
     $stmt = $conn->prepare("SELECT Password,Admin FROM `users` WHERE `UserName` = ?");
     $stmt->execute([$_POST['user']]);
     $row=$stmt->fetch();
-    echo "<p>sadfgadkjgahj</p>";
     if(isset($row[0])){
-
-      echo "<p>sadfgadkjgahj</p>";
       if(password_verify($_POST['pass'],$row[0])){
         session_start();
         $_SESSION['User'] = $_POST['user'];//Keep Login stuff on this side
         $_SESSION['Admin'] = $row[1];
-        echo "<p>sadfgadkjgahj</p>";
       }
     }
   }
