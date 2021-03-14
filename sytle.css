@@ -3,3 +3,67 @@
   margin: 10px;
   border: 2px solid black;
 }
+.nav{
+  background: darkgray;
+  margin: 10px;
+  border: 2px solid black;
+  height: 50px;
+  padding: 0px;
+}
+.button{
+  background: darkgray;
+  border:none;
+  margin: 0px;
+  border-right: solid;
+  height: 100%;
+  transition-duration: 0.4s;
+  float: left;
+}
+p{
+  margin: 20px;
+  color: black;
+}
+a{
+  text-decoration: none;
+  background: darkgray;
+  border:none;
+  margin: 0px;
+  height: 100%;
+  transition-duration: 0.4s;
+}
+a.left{
+  border-right: solid black;
+  float: left;
+}
+a.right{
+  border-left: solid black;
+  float: right;
+}
+a:hover{
+
+  background-color: gray;
+}
+a:active{
+  background-color: white;
+}
+.active{
+  background-color: yellow;
+}
+.message{
+  background-color: lightgray;
+  width: 25%;
+  border: 2px solid black;
+  float: left;
+}
+.board{
+  background-color: lightgray;
+  width: 75%;
+  border: 2px solid black;
+  float: right;
+}
+.content{
+  display: flex;
+  margin: 10px;
+  background-color: darkgray;
+  border: solid black;
+}
