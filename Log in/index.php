@@ -47,9 +47,11 @@
       <a class="left" href="../Protest Page"><p>Protest Page</p></a>
       <a class="left" href="../About Us"><p>About Us</p></a>
       <?php
-        if(isset($_SESSION['Admin'])){
+      if(isset($_SESSION['Admin'])){
+        if($_SESSION['Admin']){
           echo '<a class="left" href="/Admin"><p>Admin</p></a>';
         }
+      }
       ?>
       <a class="right" href="../Apply"><p>Apply</p></a>
       <a class="right active"><p>Log in</p></a>

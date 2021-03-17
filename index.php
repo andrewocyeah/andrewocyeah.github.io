@@ -16,7 +16,9 @@
       <?php
         session_start();
         if(isset($_SESSION['Admin'])){
-          echo '<a class="left" href="/Admin"><p>Admin</p></a>';
+          if($_SESSION['Admin']){
+            echo '<a class="left" href="/Admin"><p>Admin</p></a>';
+          }
         }
       ?>
       <a class="right" href="/Apply"><p>Apply</p></a>
@@ -24,7 +26,36 @@
     </div>
     <div class="content">
       <div class="message">
-        <p>Message Goes Here</p>
+        <form method="post">
+          <input name="MSG">
+          <input type="submit">
+        </form>
+        <?php
+          $host = 'localhost:3306';
+          $user = 'root';
+          $pass = '';//Probally Bad Idea
+          $dbname = 'hackathon';//Creative Name! :D
+          $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          if(isset($_POST["MSG"])){
+            $stmt = $conn->prepare("SELECT * FROM `messages` ORDER BY `ID` DESC");
+            $stmt->execute([]);
+            $first_row = $stmt->fetch();
+            if($first_row){
+              $id = $first_row[2] + 1;
+            }else{
+              $id = 0;
+            }
+            $stmt = $conn->prepare("INSERT INTO `messages` VALUES (?, ?, ?)");
+            $stmt->execute([$_SESSION['User'],$_POST["MSG"],$id]);
+          }
+          $stmt = $conn->prepare("SELECT * FROM `messages` ORDER BY `ID` DESC");
+          $stmt->execute([]);
+          while($row = $stmt->fetch()){
+            echo "<b>User: ".htmlspecialchars($row['User'])."</b>";
+            echo "<p>".htmlspecialchars($row['MSG'])."</p>";
+          }
+        ?>
       </div>
       <div class="board">
         <p>Board</p>

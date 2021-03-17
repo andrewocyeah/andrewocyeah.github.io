@@ -29,7 +29,18 @@
       <?php
         session_start();
         if(isset($_SESSION['Admin'])){
-          echo '<a class="left admin" href="/Admin"><p>Admin</p></a>';
+          if($_SESSION['Admin']){
+            echo '<a class="left admin" href="/Admin"><p>Admin</p></a>';
+          }else{
+            if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+              $uri = 'https://';
+            } else {
+              $uri = 'http://';
+            }
+            $uri .= $_SERVER['HTTP_HOST'];
+            header('Location: '.$uri.'/');
+            exit;
+          }
         }else{
           if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
             $uri = 'https://';
@@ -57,6 +68,25 @@
         }
       ?>
       </form>
+    </div>
+
+    <div class="content">
+      <?php
+        if(isset($_POST['name'])){
+          $stmt = $conn->prepare("DELETE FROM `users` WHERE `UserName` = ?");
+          $stmt->execute([$_POST['name']]);
+        }
+        $stmt = $conn->prepare("SELECT * FROM `users`");
+        $stmt->execute([]);
+        while($row = $stmt->fetch()){
+          echo "
+          <form method='post'>
+            <label>".$row[0]."</label>
+            <input type='hidden' name='name' value='".$row[0]."'>
+            <input type='submit' value='Delete'>
+          </form><br>";
+        }
+      ?>
     </div>
   </body>
 </html>

@@ -23,6 +23,7 @@
       $stmt->execute([$_POST['user'],$pass]);
       session_start();
       $_SESSION['User']=$_POST['user'];
+      $_SESSION['Admin'] = 0;
     }
   }
  ?>
@@ -45,7 +46,9 @@
           session_start();
         }
         if(isset($_SESSION['Admin'])){
-          echo '<a class="left" href="/Admin"><p>Admin</p></a>';
+          if($_SESSION['Admin']){
+            echo '<a class="left" href="/Admin"><p>Admin</p></a>';
+          }
         }
       ?>
       <a class="right active" ><p>Apply</p></a>

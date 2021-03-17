@@ -16,7 +16,9 @@
       <?php
         session_start();
         if(isset($_SESSION['Admin'])){
-          echo '<a class="left" href="/Admin"><p>Admin</p></a>';
+          if($_SESSION['Admin']){
+            echo '<a class="left" href="/Admin"><p>Admin</p></a>';
+          }
         }
       ?>
       <a class="right" href="../Apply"><p>Apply</p></a>
