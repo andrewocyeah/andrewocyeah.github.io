@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<?php
+  //Account Creation Happens here
+  $host = 'localhost:3306';
+  $user = 'root';
+  $pass = '';//Probally Bad Idea
+  $dbname = 'hackathon';//Creative Name! :D
+  $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  if(isset($_POST['id'])){
+    $stmt = $conn->prepare("INSERT INTO `ids` VALUES (?)");
+    $stmt->execute([$_POST['id']]);
+  }
+ ?>
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="../sytle.css">
@@ -31,6 +44,19 @@
       <a class="right" href="../Apply"><p>Apply</p></a>
       <a class="right" href="../Log in"><p>Log in</p></a>
     </div>
+    <div class="content">
+      <form method="post">
+        <input type="text" placeholder="New ID" name="id">
+        <br><input type="submit">
 
+      <?php
+        $stmt = $conn->prepare("SELECT * FROM `ids`");
+        $stmt->execute([]);
+        while($row = $stmt->fetch()){
+          echo "<br><label>".$row[0]."</label>";
+        }
+      ?>
+      </form>
+    </div>
   </body>
 </html>

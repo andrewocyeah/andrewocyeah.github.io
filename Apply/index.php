@@ -22,7 +22,7 @@
       $pass = password_hash($_POST['pass'],PASSWORD_DEFAULT,['cost' => 12]);//dunno what cost does
       $stmt->execute([$_POST['user'],$pass]);
       session_start();
-      $_SESSION['User']=$_POST['user']
+      $_SESSION['User']=$_POST['user'];
     }
   }
  ?>
