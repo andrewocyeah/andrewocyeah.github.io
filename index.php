@@ -3,6 +3,11 @@
   <head>
     <link rel="stylesheet" type="text/css" href="sytle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    window.setInterval(function(){
+      $("#msg").load("find_new_msg.php");
+    },1000);
+    </script>
   </head>
   <body>
     <div class="header">
@@ -46,16 +51,24 @@
               $id = 0;
             }
             $stmt = $conn->prepare("INSERT INTO `messages` VALUES (?, ?, ?)");
-            $stmt->execute([$_SESSION['User'],$_POST["MSG"],$id]);
+            $user = "Anon";
+            if(isset($_SESSION['User'])){
+              $user = $_SESSION['User'];
+            }
+            $stmt->execute([$user,$_POST["MSG"],$id]);
           }
           $stmt = $conn->prepare("SELECT * FROM `messages` ORDER BY `ID` DESC");
           $stmt->execute([]);
+          echo '<div id = "msg">';
           while($row = $stmt->fetch()){
             echo "<b>User: ".htmlspecialchars($row['User'])."</b>";
             echo "<p>".htmlspecialchars($row['MSG'])."</p>";
           }
+          echo "</div>";
         ?>
+        <button>Reload</button>
       </div>
+
       <div class="board">
           <?php
             $stmt = $conn->prepare('SELECT * FROM `protests`');
