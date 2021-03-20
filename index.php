@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="header">
-      <br><h1>Unnamed Thing.</h1>
+      <br><h1>Protest</h1>
     </div>
     <div class="nav">
       <a class="left active" href="#"><p>Home Page</p></a>
