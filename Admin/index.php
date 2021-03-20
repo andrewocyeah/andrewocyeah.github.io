@@ -18,7 +18,7 @@
   </head>
   <body>
     <div class="header">
-      <br><h1>Protest</h1>
+      <br><h1>Prideful</h1>
     </div>
     <div class="nav">
       <a class="left " href=".."><p>Home Page</p></a>

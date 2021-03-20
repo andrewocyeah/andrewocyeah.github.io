@@ -29,7 +29,7 @@
   </head>
   <body>
     <div class="header">
-      <br><h1>Protest</h1>
+      <br><h1>Prideful</h1>
       <?php
       if(!isset($_SESSION['User'])){
         session_start();
