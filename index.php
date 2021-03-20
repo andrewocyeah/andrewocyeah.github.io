@@ -66,7 +66,6 @@
           }
           echo "</div>";
         ?>
-        <button>Reload</button>
       </div>
 
       <div class="board">
