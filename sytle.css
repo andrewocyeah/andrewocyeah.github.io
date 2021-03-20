@@ -1,17 +1,17 @@
 .header{
-  background: lightgray;
+  background: #dff9c1;
   margin: 10px;
   border: 2px solid black;
 }
 .nav{
-  background: darkgray;
+  background: #3fff81;
   margin: 10px;
   border: 2px solid black;
   height: 50px;
   padding: 0px;
 }
 .button{
-  background: darkgray;
+  background: lime;
   border:none;
   margin: 0px;
   border-right: solid;
@@ -25,7 +25,7 @@ p{
 }
 a{
   text-decoration: none;
-  background: darkgray;
+  background: #b3d2a0;
   border:none;
   margin: 0px;
   height: 100%;
@@ -41,22 +41,22 @@ a.right{
 }
 a:hover{
 
-  background-color: gray;
+  background-color: #9fd255;
 }
 a:active{
   background-color: white;
 }
 .active{
-  background-color: yellow;
+  background-color: #dff9c1;
 }
 .message{
-  background-color: lightgray;
+  background-color: #9fd255;
   width: 25%;
   border: 2px solid black;
   float: left;
 }
 .board{
-  background-color: lightgray;
+  background-color: #b3d2a0;
   width: 75%;
   border: 2px solid black;
   float: right;
@@ -64,9 +64,9 @@ a:active{
 .content{
   display: flex;
   margin: 10px;
-  background-color: darkgray;
+  background-color: #dff9c1;
   border: solid black;
 }
 input{
-  
+
 }
