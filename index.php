@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="sytle.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="header">
@@ -10,8 +10,6 @@
     </div>
     <div class="nav">
       <a class="left active" href="#"><p>Home Page</p></a>
-      <a class="left" href="/Search Page"><p>Search Page</p></a>
-      <a class="left" href="/Profile Page"><p>Profile Page</p></a>
       <a class="left" href="/Protest Page"><p>Protest Page</p></a>
       <a class="left" href="/About Us"><p>About Us</p></a>
       <?php
@@ -59,7 +57,18 @@
         ?>
       </div>
       <div class="board">
-        <p>Board</p>
+          <?php
+            $stmt = $conn->prepare('SELECT * FROM `protests`');
+            $stmt->execute([]);
+            while($row = $stmt->fetch()){
+              echo "
+                <div class='content'>
+                  <h1>".htmlspecialchars($row[0])."</h1>
+                  <p>".htmlspecialchars($row[1])."</p>
+                </div>
+              ";
+            }
+          ?>
       </div>
     </div>
   </body>

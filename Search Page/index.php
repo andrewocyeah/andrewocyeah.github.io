@@ -10,8 +10,6 @@
     <div class="nav">
       <a class="left " href=".."><p>Home Page</p></a>
       <a class="left active"><p>Search Page</p></a>
-      <a class="left" href="../Profile Page"><p>Profile Page</p></a>
-      <a class="left" href="../Protest Page"><p>Protest Page</p></a>
       <a class="left" href="../About Us"><p>About Us</p></a>
       <?php
         session_start();
